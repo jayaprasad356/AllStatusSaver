@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -22,7 +23,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/banner_container"
+        android:layout_above="@+id/adView"
         android:weightSum="1"
         android:orientation="vertical">
 
@@ -40,10 +41,21 @@
                 android:gravity="center"
                 android:orientation="vertical">
 
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="@dimen/_5sdp"
+                    >
+
+
+
                 <ImageView
-                    android:layout_width="@dimen/_50sdp"
+                    android:layout_width="64dp"
                     android:layout_height="@dimen/_50sdp"
-                    android:src="@drawable/sp_icon" />
+                    android:src="@drawable/logo" />
+
+                </androidx.cardview.widget.CardView>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -59,17 +71,22 @@
                 android:id="@+id/settings"
                 android:layout_width="@dimen/_30sdp"
                 android:layout_height="@dimen/_30sdp"
-                android:padding="@dimen/_5sdp"
                 android:layout_alignParentRight="true"
-                android:layout_margin="@dimen/_12sdp"
-                android:src="@drawable/settings"/>
+                android:layout_marginStart="@dimen/_12sdp"
+                android:layout_marginTop="@dimen/_12sdp"
+                android:layout_marginEnd="@dimen/_12sdp"
+                android:layout_marginBottom="@dimen/_12sdp"
+                android:padding="@dimen/_5sdp"
+                android:src="@drawable/settings" />
         </RelativeLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="0.72"
-            android:background="@drawable/main_bg_home">
+            android:background="@drawable/main_bg_home"
+            android:orientation="vertical"
+            >
             <ScrollView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
@@ -173,6 +190,7 @@
                         </RelativeLayout>
                     </androidx.cardview.widget.CardView>
                     <androidx.cardview.widget.CardView
+                        android:visibility="gone"
                         android:layout_width="@dimen/_230sdp"
                         android:layout_height="@dimen/_50sdp"
                         android:layout_marginTop="@dimen/_10sdp"
@@ -182,6 +200,7 @@
                         app:cardElevation="2dp">
 
                         <RelativeLayout
+
                             android:id="@+id/youtubebtn"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent">
@@ -887,8 +906,20 @@
 
                 </LinearLayout>
             </ScrollView>
+
+
+
         </LinearLayout>
     </LinearLayout>
 
-    <include layout="@layout/lay_banner_ad" />
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        ads:adSize="SMART_BANNER"
+        ads:adUnitId="ca-app-pub-1838677544163695/7140114069">
+    </com.google.android.gms.ads.AdView>
+
 </RelativeLayout>
