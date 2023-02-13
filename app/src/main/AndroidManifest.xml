@@ -19,13 +19,11 @@
     </queries>
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="com.samsung.android.providers.context.permission.WRITE_USE_APP_FEATURE_SURVEY" />
 
     <application
-        android:name="com.vedha.allinonedownloader.MyApp"
+        android:name=".MyApp"
         android:allowBackup="true"
         android:hardwareAccelerated="true"
         android:icon="@drawable/logo"
@@ -40,145 +38,143 @@
         tools:ignore="GoogleAppIndexingWarning"
         tools:replace="android:theme">
         <activity
-            android:name="com.vedha.allinonedownloader.Youtube"
-            android:exported="false" />
+            android:name=".RewardAdActivity"
+            android:exported="true">
 
-        <activity
-            android:name="com.vedha.allinonedownloader.SplashActivity"
-            android:exported="true"
-            android:hardwareAccelerated="false"
-            android:screenOrientation="nosensor">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
         </activity>
         <activity
-            android:name="com.vedha.allinonedownloader.KMitroActivity"
+            android:name=".Youtube"
+            android:exported="false" />
+        <activity
+            android:name=".SplashActivity"
+            android:exported="true"
+            android:hardwareAccelerated="false"
+            android:screenOrientation="nosensor">
+
+        </activity>
+        <activity
+            android:name=".KMitroActivity"
             android:exported="false"
             android:hardwareAccelerated="true"
             android:screenOrientation="nosensor"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.vedha.allinonedownloader.KZiliActivity"
+            android:name=".KZiliActivity"
             android:exported="false"
             android:hardwareAccelerated="true"
             android:screenOrientation="nosensor"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.vedha.allinonedownloader.SChatActivity"
+            android:name=".SChatActivity"
             android:exported="false"
             android:hardwareAccelerated="true"
             android:screenOrientation="nosensor"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.vedha.allinonedownloader.KMojActivity"
+            android:name=".KMojActivity"
             android:exported="false"
             android:hardwareAccelerated="true"
             android:screenOrientation="nosensor"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.vedha.allinonedownloader.KMXActivity"
+            android:name=".KMXActivity"
             android:exported="false"
             android:hardwareAccelerated="true"
             android:screenOrientation="nosensor"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.vedha.allinonedownloader.KSnackActivity"
+            android:name=".KSnackActivity"
             android:exported="false"
             android:hardwareAccelerated="true"
             android:screenOrientation="nosensor"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.vedha.allinonedownloader.SettingsActivity"
+            android:name=".SettingsActivity"
             android:exported="false"
             android:hardwareAccelerated="true"
             android:screenOrientation="nosensor" />
         <activity
-            android:name="com.vedha.allinonedownloader.KRopoActivity"
+            android:name=".KRopoActivity"
             android:exported="false"
             android:hardwareAccelerated="true"
             android:screenOrientation="nosensor"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.vedha.allinonedownloader.KChingariActivity"
+            android:name=".KChingariActivity"
             android:exported="false"
             android:hardwareAccelerated="true"
             android:screenOrientation="nosensor"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.vedha.allinonedownloader.TwetActivity"
+            android:name=".TwetActivity"
             android:exported="false"
             android:hardwareAccelerated="true"
             android:screenOrientation="nosensor"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.vedha.allinonedownloader.FBActivity"
+            android:name=".FBActivity"
             android:exported="false"
             android:hardwareAccelerated="true"
             android:screenOrientation="nosensor"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.vedha.allinonedownloader.FBVideoPlayerActivity"
+            android:name=".FBVideoPlayerActivity"
             android:exported="false"
             android:hardwareAccelerated="true"
             android:screenOrientation="nosensor" />
         <activity
-            android:name="com.vedha.allinonedownloader.MyGalleryActivity"
+            android:name=".MyGalleryActivity"
             android:exported="false"
             android:hardwareAccelerated="true"
             android:screenOrientation="nosensor" />
         <activity
-            android:name="com.vedha.allinonedownloader.HomeActivity"
+            android:name=".HomeActivity"
             android:exported="true"
             android:hardwareAccelerated="true"
             android:launchMode="singleTask"
             android:screenOrientation="nosensor" />
         <activity
-            android:name="com.vedha.allinonedownloader.WAppActivity"
-            android:exported="false"
-            android:hardwareAccelerated="true"
-            android:screenOrientation="nosensor" />
-        <activity
-            android:name="com.vedha.allinonedownloader.WABusiActivity"
-            android:exported="false"
-            android:hardwareAccelerated="true"
-            android:screenOrientation="nosensor" />
-        <activity
-            android:name="com.vedha.allinonedownloader.PreviewActivity"
+            android:name=".PreviewActivity"
             android:exported="false"
             android:hardwareAccelerated="true"
             android:label="Status"
             android:screenOrientation="nosensor" />
         <activity
-            android:name="com.vedha.allinonedownloader.VideoPreviewActivity"
+            android:name=".VideoPreviewActivity"
             android:exported="false" />
         <activity
-            android:name="com.vedha.allinonedownloader.InstaActivity"
+            android:name=".InstaActivity"
             android:exported="false"
             android:hardwareAccelerated="true"
             android:screenOrientation="nosensor"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.vedha.allinonedownloader.TikActivity"
+            android:name=".TikActivity"
             android:exported="false"
             android:hardwareAccelerated="true"
             android:screenOrientation="nosensor"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.vedha.allinonedownloader.VimeoActivity"
+            android:name=".VimeoActivity"
             android:exported="false"
             android:hardwareAccelerated="true"
             android:screenOrientation="nosensor"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.vedha.allinonedownloader.PrivacyActivity"
+            android:name=".PrivacyActivity"
             android:exported="false"
             android:hardwareAccelerated="true"
             android:screenOrientation="nosensor" />
         <activity
-            android:name="com.vedha.allinonedownloader.KLikeActivity"
+            android:name=".KLikeActivity"
             android:exported="false"
             android:hardwareAccelerated="true"
             android:screenOrientation="nosensor"

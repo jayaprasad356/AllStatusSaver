@@ -15,8 +15,6 @@ import com.vedha.allinonedownloader.fragment.SChatFrag;
 import com.vedha.allinonedownloader.fragment.SnackFrag;
 import com.vedha.allinonedownloader.fragment.TweatFrag;
 import com.vedha.allinonedownloader.fragment.VimeoFrag;
-import com.vedha.allinonedownloader.fragment.WABusFrag;
-import com.vedha.allinonedownloader.fragment.WAppFrag;
 import com.vedha.allinonedownloader.fragment.FBFrag;
 import com.vedha.allinonedownloader.fragment.InsFrag;
 import com.vedha.allinonedownloader.fragment.TikFrag;
@@ -32,11 +30,8 @@ public class GalleryPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        if (position == 0) {
-            return new WAppFrag();
-        }else if (position == 1) {
-            return new WABusFrag();
-        } else if (position == 2){
+
+        if (position == 2){
             return new InsFrag();
         }  else if (position == 3){
             return new TikFrag();

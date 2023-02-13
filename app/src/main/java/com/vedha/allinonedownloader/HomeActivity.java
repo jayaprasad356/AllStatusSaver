@@ -102,10 +102,6 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
 
     void init() {
-        wsBtn = findViewById(R.id.wsBtn);
-        wsBtn.setOnClickListener(this);
-        waBusiBtn = findViewById(R.id.waBusiBtn);
-        waBusiBtn.setOnClickListener(this);
         insBtn = findViewById(R.id.insBtn);
         insBtn.setOnClickListener(this);
         tokBtn = findViewById(R.id.tokBtn);
@@ -147,22 +143,8 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.wsBtn:
-                if (!checkPermissions(this, permissionsList)) {
-                    ActivityCompat.requestPermissions(this, permissionsList, 21);
-                }else {
 
-                    startActivityes(new Intent(HomeActivity.this, WAppActivity.class));
-                }
-                break;
 
-            case R.id.waBusiBtn:
-                if (!checkPermissions(this, permissionsList)) {
-                    ActivityCompat.requestPermissions(this, permissionsList, 21);
-                }else {
-                    startActivityes(new Intent(HomeActivity.this, WABusiActivity.class));
-                }
-                break;
 
             case R.id.insBtn:
                 if (!checkPermissions(this, permissionsList)) {
