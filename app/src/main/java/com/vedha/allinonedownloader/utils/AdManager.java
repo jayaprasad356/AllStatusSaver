@@ -20,6 +20,7 @@ import com.applovin.mediation.ads.MaxInterstitialAd;
 import com.applovin.sdk.AppLovinSdk;
 import com.applovin.sdk.AppLovinSdkUtils;
 import com.google.android.gms.ads.AdError;
+import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.FullScreenContentCallback;
 import com.google.android.gms.ads.InterstitialAd;
 import com.google.android.gms.ads.LoadAdError;
@@ -30,6 +31,7 @@ import com.google.android.gms.ads.rewarded.RewardItem;
 import com.google.android.gms.ads.rewarded.RewardedAd;
 import com.google.android.gms.ads.rewarded.RewardedAdCallback;
 import com.google.android.gms.ads.rewarded.RewardedAdLoadCallback;
+import com.vedha.allinonedownloader.InstaActivity;
 import com.vedha.allinonedownloader.R;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdSize;
@@ -42,6 +44,7 @@ public class AdManager {
 
 
     private RewardedAd rewardedAd;
+    private static InterstitialAd interstitial;
 
     public AdManager(Activity activity) {
         MobileAds.initialize(activity, initializationStatus -> {
@@ -157,9 +160,27 @@ public class AdManager {
     static com.google.android.gms.ads.InterstitialAd mInterstitialAd;
 
     public static void loadInterAd(Context context) {
-        AdRequest adRequest = new AdRequest.Builder().build();
-        InterstitialAd interstitialAd = new InterstitialAd(context);
+        AdRequest adIRequest = new AdRequest.Builder().build();
+        interstitial = new InterstitialAd(context);
+        interstitial.setAdUnitId(context.getString(R.string.admob_interstitial));
+        interstitial.loadAd(adIRequest);
+        interstitial.setAdListener(new AdListener() {
+            @Override
+            public void onAdLoaded() {
+                // Call displayInterstitial() function when the Ad loads
+                displayInterstitial();
+            }
+        });
 
+
+
+
+    }
+
+    private static void displayInterstitial() {
+        if (interstitial.isLoaded()) {
+            interstitial.show();
+        }
     }
 
     public static void showInterAd(final Activity context, final Intent intent) {

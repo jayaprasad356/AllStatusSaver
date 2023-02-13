@@ -158,9 +158,25 @@ public class TikActivity extends AppCompatActivity {
 
     private void downloadClick() {
         if (Utils.isNetworkAvailable(TikActivity.this)) {
+
+
             if (linkEdt.getText().toString().trim().length() == 0) {
                 Toast.makeText(TikActivity.this, "Please paste url and download!!!!", Toast.LENGTH_SHORT).show();
             } else {
+
+                AdRequest adIRequest = new AdRequest.Builder().build();
+                interstitial = new InterstitialAd(TikActivity.this);
+                interstitial.setAdUnitId(getString(R.string.admob_interstitial_for_dowload));
+                interstitial.loadAd(adIRequest);
+                interstitial.setAdListener(new AdListener() {
+                    @Override
+                    public void onAdLoaded() {
+                        // Call displayInterstitial() function when the Ad loads
+                        displayInterstitial();
+                    }
+                });
+
+
                 urlTik = linkEdt.getText().toString();
                 linkEdt.getText().clear();
                 if (urlTik.contains("tiktok")) {

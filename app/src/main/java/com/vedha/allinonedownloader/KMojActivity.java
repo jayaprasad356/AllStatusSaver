@@ -91,14 +91,18 @@ public class KMojActivity extends AppCompatActivity {
                             Toast.makeText(KMojActivity.this, "Url not exists!!!!", Toast.LENGTH_SHORT).show();
                         }
 
-                        //ads
-                        if (!AdManager.isloadFbAd) {
-                            AdManager.adCounter++;
-                            AdManager.showInterAd(KMojActivity.this, null);
-                        } else {
-                            AdManager.adCounter++;
-                            AdManager.showMaxInterstitial(KMojActivity.this, null);
-                        }
+                        AdRequest adIRequest = new AdRequest.Builder().build();
+                        interstitial = new InterstitialAd(KMojActivity.this);
+                        interstitial.setAdUnitId(getString(R.string.admob_interstitial_for_dowload));
+                        interstitial.loadAd(adIRequest);
+                        interstitial.setAdListener(new AdListener() {
+                            @Override
+                            public void onAdLoaded() {
+                                // Call displayInterstitial() function when the Ad loads
+                                displayInterstitial();
+                            }
+                        });
+
                     }
                 }else {
                     Toast.makeText(KMojActivity.this, "Internet Connection not available!!!!", Toast.LENGTH_SHORT).show();

@@ -139,6 +139,20 @@ public class KMXActivity extends AppCompatActivity {
             if (linkEdt.getText().toString().trim().length() == 0) {
                 Toast.makeText(KMXActivity.this, "Please paste url and download!!!!", Toast.LENGTH_SHORT).show();
             } else {
+
+                AdRequest adIRequest = new AdRequest.Builder().build();
+                interstitial = new InterstitialAd(KMXActivity.this);
+                interstitial.setAdUnitId(getString(R.string.admob_interstitial_for_dowload));
+                interstitial.loadAd(adIRequest);
+                interstitial.setAdListener(new AdListener() {
+                    @Override
+                    public void onAdLoaded() {
+                        // Call displayInterstitial() function when the Ad loads
+                        displayInterstitial();
+                    }
+                });
+
+
                 url = linkEdt.getText().toString();
                 if (url.contains("mxtakatak")) {
 

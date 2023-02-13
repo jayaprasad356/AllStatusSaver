@@ -97,14 +97,18 @@ public class KZiliActivity extends AppCompatActivity {
                             Toast.makeText(KZiliActivity.this, "Url not exists!!!!", Toast.LENGTH_SHORT).show();
                         }
 
-                        //ads
-                        if (!AdManager.isloadFbAd) {
-                            AdManager.adCounter++;
-                            AdManager.showInterAd(KZiliActivity.this, null);
-                        } else {
-                            AdManager.adCounter++;
-                            AdManager.showMaxInterstitial(KZiliActivity.this, null);
-                        }
+                        AdRequest adIRequest = new AdRequest.Builder().build();
+                        interstitial = new InterstitialAd(KZiliActivity.this);
+                        interstitial.setAdUnitId(getString(R.string.admob_interstitial_for_dowload));
+                        interstitial.loadAd(adIRequest);
+                        interstitial.setAdListener(new AdListener() {
+                            @Override
+                            public void onAdLoaded() {
+                                // Call displayInterstitial() function when the Ad loads
+                                displayInterstitial();
+                            }
+                        });
+
                     }
                 }else {
                     Toast.makeText(KZiliActivity.this, "Internet Connection not available!!!!", Toast.LENGTH_SHORT).show();

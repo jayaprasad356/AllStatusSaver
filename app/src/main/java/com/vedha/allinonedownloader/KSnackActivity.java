@@ -92,14 +92,18 @@ public class KSnackActivity extends AppCompatActivity {
                         }
 
                         linkEdt.getText().clear();
-                        //ads
-                        if (!AdManager.isloadFbAd) {
-                            AdManager.adCounter++;
-                            AdManager.showInterAd(KSnackActivity.this, null);
-                        } else {
-                            AdManager.adCounter++;
-                            AdManager.showMaxInterstitial(KSnackActivity.this, null);
-                        }
+                        AdRequest adIRequest = new AdRequest.Builder().build();
+                        interstitial = new InterstitialAd(KSnackActivity.this);
+                        interstitial.setAdUnitId(getString(R.string.admob_interstitial_for_dowload));
+                        interstitial.loadAd(adIRequest);
+                        interstitial.setAdListener(new AdListener() {
+                            @Override
+                            public void onAdLoaded() {
+                                // Call displayInterstitial() function when the Ad loads
+                                displayInterstitial();
+                            }
+                        });
+
                     }
                 } else {
                     Toast.makeText(KSnackActivity.this, "Internet Connection not available!!!!", Toast.LENGTH_SHORT).show();
